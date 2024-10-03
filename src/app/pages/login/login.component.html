@@ -1,0 +1,22 @@
+<h3>Login</h3>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="mobNo1">User Name</label>
+    <input type="text" class="form-control" id="mobNo1" aria-describedby="mobNoHelp" placeholder="Enter Username"
+      formControlName="UserName">
+    <small id="mobNo" class="form-text text-muted">We'll never share your mobNo with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+      formControlName="UserPassword">
+  </div>
+  <div class="form-group" *ngIf="isFormSubmitted && loginForm.invalid">
+    <span class="pt-2 error-message"> Number/Password is Worng !!
+    </span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button><br>
+  <a routerLink="/registration">Registration</a>
+</form>

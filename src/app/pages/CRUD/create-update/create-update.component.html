@@ -1,0 +1,33 @@
+<h3>{{ entityId ? 'Update' : 'Add'}} Employes Details</h3> <a routerLink="/listing">Back</a>
+<form [formGroup]="implimentionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="UserName">User Name</label>
+        <input type="text" class="form-control" id="UserName" aria-describedby="UserName" placeholder="Enter Username"
+            formControlName="UserName">
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted && implimentionForm.get('UserName').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            formControlName="UserPassword"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted &&implimentionForm.get('UserPassword').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="fullName">fullName</label>
+        <input type="text" class="form-control" id="fullName" aria-describedby="fullName" placeholder="Enter fullName"
+            formControlName="fullName"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted && implimentionForm.get('fullName').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="mobNo1">mobNo</label>
+        <input type="text" class="form-control" id="mobNo1" aria-describedby="mobNoHelp" placeholder="Enter mobNo"
+            formControlName="mobNo"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted &&implimentionForm.get('mobNo').invalid">Required
+        </span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button><br>
+</form>

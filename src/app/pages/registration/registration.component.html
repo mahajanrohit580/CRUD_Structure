@@ -1,0 +1,36 @@
+<h3>Registration</h3>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="UserName">User Name</label>
+        <input type="text" class="form-control" id="UserName" aria-describedby="UserName" placeholder="Enter Username"
+            formControlName="UserName">
+        <small id="UserName" class="form-text text-muted">We'll never share your mobNo with anyone else.</small><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted && registrationForm.get('UserName').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            formControlName="UserPassword"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted &&registrationForm.get('UserPassword').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="fullName">fullName</label>
+        <input type="text" class="form-control" id="fullName" aria-describedby="fullName" placeholder="Enter fullName"
+            formControlName="fullName"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted && registrationForm.get('fullName').invalid">Required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="mobNo1">mobNo</label>
+        <input type="text" class="form-control" id="mobNo1" aria-describedby="mobNoHelp" placeholder="Enter mobNo"
+            formControlName="mobNo"><br>
+        <span class="pt-2 error-message" *ngIf="isFormSubmitted &&registrationForm.get('mobNo').invalid">Required
+        </span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button><br>
+    <a routerLink="/">Back</a>
+
+</form>

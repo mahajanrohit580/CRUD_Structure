@@ -1,0 +1,47 @@
+<h3>
+    Listing Detials
+</h3>
+<button type="button" class="btn btn-primary"
+    (click)="coreService.deleteStoreItem('accessToken');coreService.navigateTo('/')">Logout</button>
+
+
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" [(ngModel)]="filterBy" type="search" placeholder="Search" (keyup)="filter()"
+            [ngModelOptions]="{standalone: true}" aria-label=" Search">
+    </form>
+</nav>
+<a type="button" class="btn btn-primary" routerLink="create">Add Employe</a>
+
+<ng-container *ngIf="employeList.length; else noDataFound;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User name</th>
+                <th scope="col">Full name</th>
+                <th scope="col">Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of employeList ; let i = index">
+
+                <tr>
+                    <th scope="row" [routerLink]="'update/'+item?.empId" style="cursor: pointer;">{{ i + 1 }}</th>
+                    <td>{{ item?.empId }}</td>
+                    <td>{{ item?.empName }}</td>
+                    <td>{{ item?.mobile }}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="deleteEmp(item?.empId)">Danger</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</ng-container>
+
+
+<ng-template #noDataFound>
+    <div class="container">
+        <p class="h6">No data Found!!</p>
+    </div>
+</ng-template>
